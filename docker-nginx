@@ -1,0 +1,31 @@
+#This is My first Dockerfile
+#Version 1.0
+# Author: dihaifeng
+
+
+#Base images
+FROM cenos
+MAINTAINER Henry
+
+#ADD
+ADD pcre-8.37.tar.gz /usr/local/src
+ADD nginx-1.8.0.tar.gz  /usr/local/src
+
+#RUN
+RUN yum -y install wget gcc gcc-c++ make  openssl-devel
+RUN useradd -s /sbin/nologin -M www
+
+#WORKDIR
+WORKDIR /usr/local/src/nginx-1.8.0
+
+RUN ./configure --prefix=/usr/local/nginx --user=www --group=www && make && make install
+
+RUN echo "daemon off;" >> /usr/local/nginx/conf/nginx.conf
+
+ENV PATH=/usr/local/nginx/sbin:$PATH
+#EXPOSE
+EXPOSE 80
+
+CMD ["nginx"]
+
+
