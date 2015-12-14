@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="renderer" content="webkit" />
+<title>运维知识体系v0.5</title>
+<meta name="keywords" content="运维知识体系、自动化运维、系统运维、运维什么、运维需要学什么？运维包括哪些内容？" />
+<meta name="description" content="运维知识体系"  />
+<base href="http://www.unixhot.com/" /><!--[if IE]></base><![endif]-->
+<link href="http://www.unixhot.com/static/css/default/img/favicon.ico?v=20150818" rel="shortcut icon" type="image/x-icon" />
+
+<link rel="stylesheet" type="text/css" href="http://www.unixhot.com/static/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="http://www.unixhot.com/static/css/icon.css" />
+
+<link href="http://www.unixhot.com/static/css/default/common.css?v=20150818" rel="stylesheet" type="text/css" />
+<link href="http://www.unixhot.com/static/css/default/link.css?v=20150818" rel="stylesheet" type="text/css" />
+<link href="http://www.unixhot.com/static/js/plug_module/style.css?v=20150818" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">
+	var _C80455BEB2D72DBE61D8A886432BA912="";
+	var G_POST_HASH=_C80455BEB2D72DBE61D8A886432BA912;
+	var G_INDEX_SCRIPT = "";
+	var G_SITE_NAME = "运维社区";
+	var G_BASE_URL = "http://www.unixhot.com";
+	var G_STATIC_URL = "http://www.unixhot.com/static";
+	var G_UPLOAD_URL = "http://www.unixhot.com/uploads";
+	var G_USER_ID = "";
+	var G_USER_NAME = "";
+	var G_UPLOAD_ENABLE = "N";
+	var G_UNREAD_NOTIFICATION = 0;
+	var G_NOTIFICATION_INTERVAL = 100000;
+	var G_CAN_CREATE_TOPIC = "";
+	var G_ADVANCED_EDITOR_ENABLE = "Y";
+
+	</script>
+<script src="http://www.unixhot.com/static/js/jquery.2.js?v=20150818" type="text/javascript"></script>
+<script src="http://www.unixhot.com/static/js/jquery.form.js?v=20150818" type="text/javascript"></script>
+<script src="http://www.unixhot.com/static/js/plug_module/plug-in_module.js?v=20150818" type="text/javascript"></script>
+<script src="http://www.unixhot.com/static/js/aws.js?v=20150818" type="text/javascript"></script>
+<script src="http://www.unixhot.com/static/js/aw_template.js?v=20150818" type="text/javascript"></script>
+<script src="http://www.unixhot.com/static/js/app.js?v=20150818" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.unixhot.com/static/js/compatibility.js"></script>
+<!--[if lte IE 8]>
+	<script type="text/javascript" src="http://www.unixhot.com/static/js/respond.js"></script>
+<![endif]-->
+</head>
+<noscript unselectable="on" id="noscript">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="http://www.unixhot.com/static/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>
+<body>
+	<div class="aw-top-menu-wrap">
+		<div class="container">
+			<!-- logo -->
+			<div class="aw-logo hidden-xs">
+				<a href="http://www.unixhot.com"></a>
+			</div>
+			<!-- end logo -->
+			<!-- 搜索框 -->
+			<div class="aw-search-box  hidden-xs hidden-sm">
+				<form class="navbar-search" action="http://www.unixhot.com/search/" id="global_search_form" method="post">
+					<input class="form-control search-query" type="text" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query" />
+					<span title="搜索" id="global_search_btns" onClick="$('#global_search_form').submit();"><i class="icon icon-search"></i></span>
+					<div class="aw-dropdown">
+						<div class="mod-body">
+							<p class="title">输入关键字进行搜索</p>
+							<ul class="aw-dropdown-list hide"></ul>
+							<p class="search"><span>搜索:</span><a onClick="$('#global_search_form').submit();"></a></p>
+						</div>
+						<div class="mod-footer">
+							<a href="http://www.unixhot.com/publish" onClick="$('#header_publish').click();" class="pull-right btn btn-mini btn-success publish">发起问题</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end 搜索框 -->
+			<!-- 导航 -->
+			<div class="aw-top-nav navbar">
+				<div class="navbar-header">
+				  <button  class="navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+				<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+				  <ul class="nav navbar-nav">
+										<li><a href="" class=""><i class="icon icon-list"></i> 发现</a></li>
+
+					<!-- <li><a href="http://www.unixhot.com/question/" class="">问题</a></li>
+
+					<li><a href="http://www.unixhot.com/article/" class="">文章</a></li> -->
+
+					<li><a href="http://www.unixhot.com/topic/" ><i class="icon icon-topic"></i> 话题</a></li>
+										<li><a href="http://www.unixhot.com/help/"><i class="icon icon-bulb"></i> 帮助</a></li>					<li>
+						<a style="font-weight:bold;">· · ·</a>
+						<div class="dropdown-list pull-right">
+							<ul id="extensions-nav-list">
+																							</ul>
+						</div>
+					</li>
+				  </ul>
+				</nav>
+			</div>
+			<!-- end 导航 -->
+			<!-- 用户栏 -->
+			<div class="aw-user-nav">
+				<!-- 登陆&注册栏 -->
+									<a class="login btn btn-normal btn-primary" href="http://www.unixhot.com/account/login/">登录</a>
+					<a class="register btn btn-normal btn-success" href="http://www.unixhot.com/account/register/">注册</a>								<!-- end 登陆&注册栏 -->
+			</div>
+			<!-- end 用户栏 -->
+			<!-- 发起 -->
+						<!-- end 发起 -->
+		</div>
+	</div>
+	
+
+<div class="aw-container-wrap">
+	<div class="aw-custom-page">
+		<div class="row">
+			<div class="col-sm-12">
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 14">
+<link rel=File-List href="http://www.unixhot.com/?/ops-v4.0.files/filelist.xml">
+<style id="ops-v4.0_20666_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font020666
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;}
+.font520666
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;}
+.font620666
+	{color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;}
+.xl6320666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6420666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6520666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6620666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6720666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#B8CCE4;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl6820666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl6920666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7020666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7120666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:yellow;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7220666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7320666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#92D050;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7420666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7520666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#C4D79B;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7620666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#CCC0DA;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7720666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7820666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7920666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8020666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#B8CCE4;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8120666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:#B8CCE4;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8220666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:#B8CCE4;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8320666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8420666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8520666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8620666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8720666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8820666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8920666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9020666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9120666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9220666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9320666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9420666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9520666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9620666
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-char-type:none;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>　　<![endif]-->
+<!--下列信息由 Microsoft Excel 的发布为网页向导生成。-->
+<!--如果同一条目从 Excel 中重新发布，则所有位于 DIV 标记之间的信息均将被替换。-->
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导开始-->
+<!----------------------------->
+
+<div id="ops-v4.0_20666" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=2094 class=xl6320666
+ style='border-collapse:collapse;table-layout:fixed;width:1573pt'>
+ <col class=xl6320666 width=118 style='mso-width-source:userset;mso-width-alt:
+ 3776;width:89pt'>
+ <col class=xl6320666 width=132 style='mso-width-source:userset;mso-width-alt:
+ 4224;width:99pt'>
+ <col class=xl6320666 width=101 style='mso-width-source:userset;mso-width-alt:
+ 3232;width:76pt'>
+ <col class=xl6320666 width=130 style='mso-width-source:userset;mso-width-alt:
+ 4160;width:98pt'>
+ <col class=xl6320666 width=121 style='mso-width-source:userset;mso-width-alt:
+ 3872;width:91pt'>
+ <col class=xl6320666 width=874 style='mso-width-source:userset;mso-width-alt:
+ 27968;width:656pt'>
+ <col class=xl6320666 width=174 style='mso-width-source:userset;mso-width-alt:
+ 5568;width:131pt'>
+ <col class=xl6320666 width=195 style='mso-width-source:userset;mso-width-alt:
+ 6240;width:146pt'>
+ <col class=xl6320666 width=110 style='mso-width-source:userset;mso-width-alt:
+ 3520;width:83pt'>
+ <col class=xl6320666 width=139 style='mso-width-source:userset;mso-width-alt:
+ 4448;width:104pt'>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6320666 width=118 style='height:27.95pt;width:89pt'></td>
+  <td colspan=9 class=xl9220666 width=1976 style='width:1484pt'>运维知识体系v0.5-（运维社区-赵班长出品，欢迎转载！）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl7520666 style='height:27.95pt'>运维管理体系</td>
+  <td class=xl7620666 style='border-top:none;border-left:none'>测试和开发相关</td>
+  <td colspan=3 class=xl8020666 width=352 style='border-right:.5pt solid black;
+  border-left:none;width:265pt'>运维架构层级</td>
+  <td class=xl6720666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>内容描述</td>
+  <td class=xl7120666 width=174 style='border-top:none;border-left:none;
+  width:131pt'>监控体系</td>
+  <td class=xl7220666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>安全体系</td>
+  <td class=xl7320666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>备份体系</td>
+  <td class=xl7420666 width=139 style='border-top:none;border-left:none;
+  width:104pt'>自动化体系</td>
+ </tr>
+ <tr class=xl6920666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=29 height=1073 class=xl7720666 width=118 style='border-bottom:
+  .5pt solid black;height:810.35pt;border-top:none;width:89pt'><font
+  class="font620666">管理必知必会</font><font class="font020666"><br>
+    <br>
+    ITSM<br>
+    <br>
+    ITIL<br>
+    <br>
+    IT Service CMM<br>
+    <br>
+    Six Sigma<br>
+    <br>
+    PMBok<br>
+    <br>
+    </font></td>
+  <td rowspan=29 class=xl7720666 width=132 style='border-bottom:.5pt solid black;
+  border-top:none;width:99pt'><font class="font620666">涉及到运维参与</font><font
+  class="font020666"><br>
+    <br>
+    性能测试（TCPCopy）<br>
+    <br>
+    单机监控（nmon）<br>
+    <br>
+    环境规划（开发、测试、预生产、生产）<br>
+    <br>
+    CI（持续集成）<br>
+    <br>
+    自动化部署<br>
+    <br>
+    Job管理平台<br>
+    <br>
+    自动化测试Selenium<br>
+    </font></td>
+  <td rowspan=2 class=xl9520666 width=101 style='border-bottom:.5pt solid black;
+  border-top:none;width:76pt'>客户端层</td>
+  <td colspan=2 class=xl9320666 width=251 style='border-right:.5pt solid black;
+  border-left:none;width:189pt'>DNS</td>
+  <td class=xl6820666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>浏览器缓存->本地hosts->本地缓存->DNS服务器（本地缓存、迭代）->根->公网IP地址、HTTP-DNS、机房内部智能DNS</td>
+  <td rowspan=4 class=xl8520666 width=174 style='border-bottom:.5pt solid black;
+  border-top:none;width:131pt'>监控宝、基调、<br>
+    <br>
+    博睿、听云</td>
+  <td rowspan=4 class=xl8520666 width=195 style='border-bottom:.5pt solid black;
+  border-top:none;width:146pt'>加速乐、牛盾、安全宝</td>
+  <td rowspan=4 class=xl8520666 width=110 style='border-bottom:.5pt solid black;
+  border-top:none;width:83pt'>云存储</td>
+  <td rowspan=4 class=xl8520666 width=139 style='border-bottom:.5pt solid black;
+  border-top:none;width:104pt'>API</td>
+ </tr>
+ <tr class=xl6920666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl9320666 width=251 style='border-right:.5pt solid black;
+  height:27.95pt;border-left:none;width:189pt'>浏览器</td>
+  <td class=xl6820666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>缓存协商（Last-Modified、Expires、Etag）、组件分离、提高浏览器并发数、避免静态资源Cookie上传</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=2 height=74 class=xl6420666 width=101 style='height:55.9pt;
+  border-top:none;width:76pt'>外部层</td>
+  <td colspan=2 class=xl6420666 width=251 style='border-left:none;width:189pt'>第三方CDN</td>
+  <td class=xl6820666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>智能DNS/GSLB->反向代理缓存->源站 （各类API如：带宽、预缓存、缓存刷新）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>云计算、外包</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>公有云、混合云、运维外包服务、APM（应用性能管理）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=3 height=111 class=xl6420666 width=101 style='height:83.85pt;
+  border-top:none;width:76pt'>网络层</td>
+  <td colspan=2 class=xl6420666 width=251 style='border-left:none;width:189pt'>核心层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>网关设备（outside、inside）防火墙、路由器、Ipsec VPN</td>
+  <td rowspan=3 class=xl6420666 width=174 style='border-top:none;width:131pt'>同上、网络监控
+  （Smokeping）</td>
+  <td rowspan=3 class=xl6420666 width=195 style='border-top:none;width:146pt'>防火墙</td>
+  <td rowspan=3 class=xl6420666 width=110 style='border-top:none;width:83pt'>HSRP、VRRP</td>
+  <td rowspan=3 class=xl6420666 width=139 style='border-top:none;width:104pt'>SDN</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>汇聚层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>三层交换 动态路由（OSPF）、静态路由、EC（端口汇聚）、MSTP+VRRP<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>接入层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>二层交换 （VTP、SPF、Trunk、端口安全）CCNA级别</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=2 height=74 class=xl6420666 width=101 style='height:55.9pt;
+  border-top:none;width:76pt'>集群层</td>
+  <td rowspan=2 class=xl6420666 width=130 style='border-top:none;width:98pt'>负载均衡+高可用</td>
+  <td class=xl6420666 width=121 style='border-top:none;border-left:none;
+  width:91pt'>四层负载均衡</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>开源：LVS（IP负载均衡）+Keepalived 商业：F5、Netscaler</td>
+  <td rowspan=12 class=xl6420666 width=174 style='border-top:none;width:131pt'>舆论监控(第三方)<br>
+    <br>
+    业务监控(监控接口)<br>
+    <br>
+    流量分析（Piwik）<br>
+    <br>
+    服务监控（提供API）<br>
+    <br>
+    安全监控（WAF）<br>
+    </td>
+  <td rowspan=5 class=xl6420666 width=195 style='border-top:none;width:146pt'>WAF（Nginx+Lua）<br>
+    <br>
+    代码安全<br>
+    <br>
+    GitHub扫描</td>
+  <td rowspan=2 class=xl6420666 width=110 style='border-top:none;width:83pt'>VRRP</td>
+  <td rowspan=2 class=xl6420666 width=139 style='border-top:none;width:104pt'>平台开发<br>
+    （IAAS）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>七层负载均衡</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>Haproxy、Nginx、Apache（根据User-Agent、URL等进行负载分发）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=14 height=518 class=xl8520666 width=101 style='border-bottom:
+  .5pt solid black;height:391.3pt;border-top:none;width:76pt'>应用服务层</td>
+  <td colspan=2 class=xl6420666 width=251 style='border-left:none;width:189pt'>反向代理缓存</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>ATS、Squid、Varnish(预缓存、缓存刷新）</td>
+  <td rowspan=4 class=xl6420666 width=110 style='border-top:none;width:83pt'>集群</td>
+  <td class=xl6420666 width=139 style='border-top:none;border-left:none;
+  width:104pt'>平台开发<br>
+    （第三方）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>Web层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>Apache、Nginx、Tomcat、Jboss（GZIP、Web服务器缓存、epoll、sendfile、CPU绑定、自身性能优化）</td>
+  <td class=xl6420666 width=139 style='border-top:none;border-left:none;
+  width:104pt'>自定义开发</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>应用层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>PHP Python Java C C++ 模块理解、代码部署、（OPCache、LocalCache）</td>
+  <td rowspan=7 class=xl8520666 width=139 style='border-bottom:.5pt solid black;
+  border-top:none;width:104pt'>远程执行+配置管理+云管理：SaltStack<br>
+    <br>
+    基于SaltStack+etcd+OpenStack/Docker的自动化扩容<br>
+    <br>
+    过载保护</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl6420666 width=251 style='height:27.95pt;
+  border-left:none;width:189pt'>SOA层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>SOA框架（dubbo、resteasy）、业务模块、协议（RPC、restful）、ESB、服务注册与发现（Etcd、Zookeeper）</td>
+  <td class=xl6420666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>框架安全</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=130 style='height:27.95pt;border-top:
+  none;border-left:none;width:98pt'>分布式层</td>
+  <td class=xl6420666 width=121 style='border-top:none;border-left:none;
+  width:91pt'>分布式消息队列</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>ActiveMQ（成熟）、RabbitMQ（成熟、案例多）、ZeroMQ（中）、RocketMQ（中）</td>
+  <td class=xl6420666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>防火墙、权限控制</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>集群</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=4 height=148 class=xl6420666 width=130 style='height:111.8pt;
+  border-top:none;width:98pt'>文件存储</td>
+  <td class=xl6620666 style='border-top:none;border-left:none'>单机存储</td>
+  <td class=xl6520666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>机械硬盘、SSD、文件系统（ext4、xfs）、LVM</td>
+  <td rowspan=5 class=xl8520666 width=195 style='border-bottom:.5pt solid black;
+  border-top:none;width:146pt'>软件自身访问控制</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>Raid</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6620666 style='height:27.95pt;border-top:none;
+  border-left:none'>单机存储扩展</td>
+  <td class=xl6520666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>文件分发（多级分发）、文件同步（rsync、HASH Tree、inotify）、DRBD、DAS</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>无</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>共享存储</td>
+  <td class=xl6520666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>NAS[NFS（Unix/Linux）]、SAN、iSCSI</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>rsync</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>分布式存储</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>GlusterFS、MooseFS、FastDFS、Ceph</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>分布式</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=130 style='height:27.95pt;border-top:
+  none;border-left:none;width:98pt'>DAL</td>
+  <td class=xl7020666 width=121 style='border-top:none;border-left:none;
+  width:91pt'>数据访问层</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>未开源：淘宝的TDDL、开源：360（Atlas）、阿里（Cobar）、MyCat、MySQL-Proxy、根据业务定制开发</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>自带</td>
+  <td class=xl6420666 width=139 style='border-top:none;border-left:none;
+  width:104pt'>DAL</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=4 height=148 class=xl6420666 width=130 style='height:111.8pt;
+  border-top:none;width:98pt'>数据层</td>
+  <td class=xl6420666 width=121 style='border-top:none;border-left:none;
+  width:91pt'>分布式缓存</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>Memcached、Redis（客户端分片、Redis Cluster、Twemproxy、Codis）</td>
+  <td rowspan=3 class=xl6420666 width=174 style='border-top:none;width:131pt'>数据库监控</td>
+  <td rowspan=3 class=xl6420666 width=195 style='border-top:none;width:146pt'>权限控制</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>集群</td>
+  <td rowspan=3 class=xl6420666 width=139 style='border-top:none;width:104pt'>数据库运维平台</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>NoSQL</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>Redis、LevelDB（SSDB）、CouchDB、Mongodb、Couchbase 、Cassandra</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>集群</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>DB</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>MySQL（Drizzle、MariaDB、Percona Server、Percona Xtradb
+  Cluster、MHA）Oracle（DG、GG、GC）、PostgreSQL、SqlServer</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>数据库备份</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=121 style='height:27.95pt;border-top:
+  none;border-left:none;width:91pt'>大数据</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>Hadoop生态圈（HDFS、Hive、Hbase、Zookeeper、Pig、Spark）、Hadoop+Mahout智能推荐、kafka和Storm实时分析</td>
+  <td rowspan=4 class=xl8520666 width=174 style='border-bottom:.5pt solid black;
+  border-top:none;width:131pt'>Zabbix监控平台</td>
+  <td rowspan=4 class=xl8520666 width=195 style='border-bottom:.5pt solid black;
+  border-top:none;width:146pt'>kerberos、继承其它系统</td>
+  <td rowspan=4 class=xl8520666 width=110 style='border-bottom:.5pt solid black;
+  border-top:none;width:83pt'>自定义</td>
+  <td class=xl6420666 width=139 style='border-top:none;border-left:none;
+  width:104pt'>Ambari、Cloudera Manager</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=3 height=111 class=xl8520666 width=101 style='border-bottom:.5pt solid black;
+  height:83.85pt;border-top:none;width:76pt'>基础服务层</td>
+  <td colspan=2 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  border-left:none;width:189pt'>运维相关</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>ownCloud、项目管理（Jira、WIKI、Redmine、Bugzilla、Sonar、CodeReview）</td>
+  <td rowspan=3 class=xl8520666 width=139 style='border-bottom:.5pt solid black;
+  border-top:none;width:104pt'>Puppet、Chef、SaltStack、Ansible</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  height:27.95pt;border-left:none;width:189pt'>应用相关</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>日志收集平台（ELKStack）、自动化部署平台、Job管理平台</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td colspan=2 height=37 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  height:27.95pt;border-left:none;width:189pt'>系统相关</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>LDAP、DNS、DHCP、Mail、SMS、Git（Github、Gitlab）、Yum仓库、操作审计（xenapp）</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td height=37 class=xl6420666 width=101 style='height:27.95pt;border-top:
+  none;border-left:none;width:76pt'>操作系统层</td>
+  <td colspan=2 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  border-left:none;width:189pt'>环境初始化</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>基础性能优化、监控Agent、SaltStack Minion、DNS、rsyslog、logstash、安全审计</td>
+  <td class=xl6420666 width=174 style='border-top:none;border-left:none;
+  width:131pt'>系统监控</td>
+  <td class=xl6420666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>防火墙、权限控制</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>集群、热迁移</td>
+  <td rowspan=3 class=xl8520666 width=139 style='border-bottom:.5pt solid black;
+  border-top:none;width:104pt'>公有云（AWS、青云、阿里云、盛大云）<br>
+    私有云（OpenStack、Cloudstack）<br>
+    CMDB</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.95pt'>
+  <td rowspan=2 height=74 class=xl6420666 width=101 style='height:55.7pt;
+  border-top:none;width:76pt'>基础设施层</td>
+  <td colspan=2 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  border-left:none;width:189pt'>设备上下架</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>网络配置、标签化、配置检查、Raid构建、iDrac\ILO\IMM、操作系统安装（Cobbler）、资产录入（CMDB）</td>
+  <td class=xl6420666 width=174 style='border-top:none;border-left:none;
+  width:131pt'>机房巡检、物理监控 Zabbix IPMI</td>
+  <td class=xl6420666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>物理安全、灾备</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>bonding、灾备</td>
+ </tr>
+ <tr height=37 style='mso-height-source:userset;height:27.75pt'>
+  <td colspan=2 height=37 class=xl8320666 width=251 style='border-right:.5pt solid black;
+  height:27.75pt;border-left:none;width:189pt'>IDC托管</td>
+  <td class=xl6420666 width=874 style='border-top:none;border-left:none;
+  width:656pt'>需求分析、IDC选型、网络测试、谈价格、签合同、设备采购（原厂vs拆机）</td>
+  <td class=xl6420666 width=174 style='border-top:none;border-left:none;
+  width:131pt'>第三方评估网络性能</td>
+  <td class=xl6420666 width=195 style='border-top:none;border-left:none;
+  width:146pt'>防忽悠，尽量按月付费</td>
+  <td class=xl6420666 width=110 style='border-top:none;border-left:none;
+  width:83pt'>多家IDC对比</td>
+ </tr>
+ <tr class=xl6320666 height=37 style='mso-height-source:userset;height:27.75pt'>
+  <td colspan=5 height=37 class=xl8920666 width=602 style='border-right:.5pt solid black;
+  height:27.75pt;width:453pt'><span
+  style='mso-spacerun:yes'> </span>备<span style='mso-spacerun:yes'> 
+  </span>注</td>
+  <td colspan=5 class=xl8320666 width=1492 style='border-right:.5pt solid black;
+  border-left:none;width:1120pt'>1.本表格只体系和运维相关的<span
+  style='mso-spacerun:yes'>  </span>2.表格没有严格意义上的层级关系 3.持续更新中，欢迎留言完善。</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=118 style='width:89pt'></td>
+  <td width=132 style='width:99pt'></td>
+  <td width=101 style='width:76pt'></td>
+  <td width=130 style='width:98pt'></td>
+  <td width=121 style='width:91pt'></td>
+  <td width=874 style='width:656pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=195 style='width:146pt'></td>
+  <td width=110 style='width:83pt'></td>
+  <td width=139 style='width:104pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导结束-->
+<!----------------------------->
+</body>
+
+</html>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="aw-footer-wrap">
+	<div class="aw-footer">
+		Copyright © 2015<span class="hidden-xs"> - 京ICP备12049721号, All Rights Reserved</span>
+
+		<span class="hidden-xs">Powered By <a href="http://www.wecenter.com/?copyright" target="blank">WeCenter 3.1.4</a></span>
+
+			</div>
+</div>
+
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
+
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/1450076096%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+
+<!-- Escape time: 0.039303064346313 --><!-- / DO NOT REMOVE -->
+
+</body>
+</html>
