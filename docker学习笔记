@@ -1,0 +1,96 @@
+docker容器学习
+基础命令学习
+	1，docker search centos   		 						##搜索镜像文件
+	2，docker pull centos            						##下载镜像
+	3，docker images				 						##查看镜像
+	4，docker run centos /bin/echo 'hello world' 			##启动一个容器
+	5，docker ps -a                  						##查看容器包括启动和停止的容器
+	6，docker run --name mydocker -it centos /bin/bash  	##进入容器内部
+	7, ip ad li                                             ##查看ip地址
+	8，docker run -d --name mydocker centos                 ##后台启动容器
+	9，nsenter(yum -y install util-linux进行安装)           ##使用这个命令通过容器 PID进入容器
+	   docker inspect --format "{{.State.Pid}}" mydocker（名称或容器ID）  3575  ##取得容器的PID号
+	10，nsenter --target 3575 --mount --uts --ipc --net --pid    ##进入容器
+	进入容器脚本：
+		#!/bin/bash
+		CNAME=$1
+		CPID=`docker inspect --format "{{.State.Pid}}" $CNAME`
+		nsenter --target "$CPID" --mount --uts --ipc --net --pid
+网络访问：
+	1， brctl show  										##会发现一个docker0的网桥
+	2， ip ro li                                            ##查看路由
+	3，网络端口映射：
+			随机映射：
+				docker -d -P --name mynginx  nginx 
+				docker ps -l											##查看最近的一个容器操作
+				onds 0.0.0.0:32769->80/tcp,0.0.0.0:32768->443/tcp   mynginx     ##容器的80端口映射到物理机的32769
+			指定映射：
+				docker -d -p 91:80 --name mynginx1 nginx              	##91是映射后的端口，80是容器里的默认端口
+				-p ip:hostPort:containerPost 						  	##ip地址端口+容器端口
+				-p ip::containerPort 								  	##iP+容器的端口
+				-p hostPort:containerPort  -p hostPort:containerPor   	##指定多个端口
+docker数据管理：
+		数据卷：	-v /data
+			docker run -it --name volume-test1 -h centos -v /data  centos	 ##在容器里会生成一个/data 目录
+			docker inspect -f {{.Volumes}} volume-test1                      ##查看数据目录映射关系
+			指定目录：-v src:dst   
+			docker run -it --name volume-test2 -h centos -v /opt:/opt(:ro只读) centos  ##物理机的/opt映射到容器的/opt
+			docker run -it --rm  centos   		##此镜像为测试镜像关闭后自动清楚
+			
+		数据卷容器：
+				docker run -it --name volume-test3 --volumes-from volume-test1 centos  ##指定容器1，为数据卷
+docker镜像构建：
+	手动构建：	
+		1，nginx 加daemon off;  关闭nginx的后台运行，并设置开机自启/etc/rc.d/rc.local
+		2，docker commit -m "my_nginx" 023d0bc923a9 dihaifeng/my_nginx:v1   ##将容器制作成镜像
+		3，docker run -d -p 99:80 dihaifeng/my_nginx:v1 /usr/local/nginx/sbin/nginx 
+	dockfile：
+		1，基础镜像信息	 2， 维护者的信息	 3，镜像操作指令	 4，容器启动时执行指令
+		1，创建dockerfile的目录
+			mkdir -p /opt/docker-file/nginx
+			vim Dockerfile   ##docker的D必须大写
+		
+		Dockerfile指令：
+			FROM:			它的妈妈是谁（基础镜像）
+			MAINTAINER:		告诉别人，你创造了它（维护者信息）
+			ADD：			往它肚子里放点文件（COPY文件，会自动解压，必须和dockerfile放在一个目录里）
+			RUN：			你想让它干啥（把命令前面加上RUN）
+			WORKDIR:		我是cd，今天刚化了妆（当前工作目录）
+			VOLUME:			给我一个存放行李的地方（目录挂载）
+			EXPOSE：		我要打开的门是啥（端口）
+			RUN：			奔跑吧，兄弟！（进程要一直运行下去）
+		配置dockerfle的环境变量：	
+			ENV PATH=/usr/local/nginx/sbin:$PATH
+			CMD ["nginx"]
+		docker build -t nginx-file:v1 /opt/docker-file/nginx/   ##自动构建dockerfile
+docker核心技术：
+	docker资源隔离：使用Linux的LXC，使用Kernel namespace(命名空间：Pid、net、IPC、mnt、uts、user)
+	docker资源限制：使用cgroup，支持CPU、内存
+	压力测试的工具：stress
+		CPU测试：
+			docker run -it --rm stress --cpu 1  		 	##开一个容器测试cpu占用率
+			docker run -it --rm -c 512 stress -cpu 1     	##有几个CPU指定几，cpu配额测试，不指定默认是对半分
+			docker run -it --rm --cpuset-cpus=0,1 stress --cpu 2 	##只会占用一个CPU
+		内存测试：
+			docker run -it --rm -m 128m stress --vm 1 --vm-bytes 120m --vm-hang 0 
+	docker网络模式：默认是桥接模式。     docker-compose  ##构建多个镜像
+docker-registry私有仓库：
+	docker pull registry
+	docker run -d -p 5001:5000 registry   					##registry默认是5000端口
+	docker tag nginx 192.168.10.110:5001/test/nginx:v1   	##打标签
+	docker push 192.168.10.110:5001/test/nginx:v1           ##打完标签可以push到私有仓库中，新版本会报错，要使用https的方式，
+	修改/etc/sysconfig/docker  --->  other_args="--insecure-registry 192.168.10.110:5001"  重新启动docker ,就可以push了。
+	
+docker dashboard (shipyard):
+		1,vim /etc/sysconfig/docker
+			other_args="-H tcp://0.0.0.0:235 -H unix:///var/run/docker.sock"  ##容器之间通信
+		/etc/init.d/docker restart  #重新加载docker
+		2,安装shipyard
+			docker run -it -d --name shipyard-rethinkdb-data --entrypoint /bin/bash shipyard/rethinkdb -l
+			
+		
+		
+
+	
+	
+	
